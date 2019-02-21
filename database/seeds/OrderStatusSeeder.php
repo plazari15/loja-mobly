@@ -11,7 +11,7 @@ class OrderStatusSeeder extends Seeder
      */
     public function run()
     {
-        \App\OrderStatus::truncate();
+//        \App\OrderStatus::truncate();
 
         \App\OrderStatus::create([
             'code' => 'nao_processado',

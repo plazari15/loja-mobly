@@ -19,12 +19,14 @@ class CreateOrderLinesTable extends Migration
             $table->unsignedInteger('order_id');
             $table->foreign('order_id')
                 ->references('id')
-                ->on('orders');
+                ->on('orders')
+                ->onDelete('cascade');
 
             $table->unsignedInteger('status_id');
             $table->foreign('status_id')
                 ->references('id')
-                ->on('order_statuses');
+                ->on('order_statuses')
+                ->onDelete('cascade');
 
             $table->timestamps();
         });
