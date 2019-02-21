@@ -22,7 +22,7 @@ class CreateProductImagesTable extends Migration
                 ->onDelete('cascade');
             $table->string('alt');
             $table->string('url');
-            $table->boolean('principal')->default('false');
+            $table->boolean('principal')->default(false);
             $table->timestamps();
         });
     }
