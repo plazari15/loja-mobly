@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class OrderStatus extends Seeder
+class OrderStatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,44 +11,44 @@ class OrderStatus extends Seeder
      */
     public function run()
     {
-        OrderStatus::truncate();
+        \App\OrderStatus::truncate();
 
-        OrderStatus::create([
+        \App\OrderStatus::create([
             'code' => 'nao_processado',
             'description' => 'Não Processado'
         ]);
 
-        OrderStatus::create([
+        \App\OrderStatus::create([
             'code' => 'aguardando_pgto',
             'description' => 'Aguardando pagamento'
         ]);
 
-        OrderStatus::create([
+        \App\OrderStatus::create([
             'code' => 'pago',
             'description' => 'Pago'
         ]);
 
-        OrderStatus::create([
+        \App\OrderStatus::create([
             'code' => 'estoque',
             'description' => 'Separação de Estoque'
         ]);
 
-        OrderStatus::create([
+        \App\OrderStatus::create([
             'code' => 'nfe',
             'description' => 'Emitindo NFe'
         ]);
 
-        OrderStatus::create([
+        \App\OrderStatus::create([
             'code' => 'coleta',
             'description' => 'Aguardando Coleta'
         ]);
 
-        OrderStatus::create([
+        \App\OrderStatus::create([
             'code' => 'transporte',
             'description' => 'Com Transportadora'
         ]);
 
-        OrderStatus::create([
+        \App\OrderStatus::create([
             'code' => 'concluido',
             'description' => 'Concluído'
         ]);
