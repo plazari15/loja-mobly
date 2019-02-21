@@ -24,7 +24,7 @@ class CreateOrderLinesTable extends Migration
             $table->unsignedInteger('status_id');
             $table->foreign('status_id')
                 ->references('id')
-                ->on('statuses');
+                ->on('order_statuses');
 
             $table->timestamps();
         });
