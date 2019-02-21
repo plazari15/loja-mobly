@@ -29,7 +29,6 @@ class CreateOrderItemsTable extends Migration
             $table->integer('quantity');
             $table->float('price', 10, 2);
             $table->float('discount', 10, 2);
-            $table->float('discount', 10, 2);
             $table->timestamps();
         });
     }
