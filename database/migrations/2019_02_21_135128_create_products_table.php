@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->text('description');
             $table->integer('qtd');
-            $table->integer('minimium');
+            $table->integer('minimum');
             $table->float('normal_price', 10, 2);
             $table->float('updated_price', 10, 2)->comment('Updated price when want to give discounts');
             $table->longText('big_description');

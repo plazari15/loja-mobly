@@ -12,13 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('errors.illustrated-layout');
+
 });
 
 Auth::routes();
 
 Route::prefix('admin')->middleware('isAdmin')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/produtos', 'Admin\ProductsController@index')->name('home');
+    Route::get('/produtos/novo', 'Admin\ProductsController@create')->name('home');
+    Route::post('/produtos/novo', 'Admin\ProductsController@store')->name('produtos.post');
 });
 
 
