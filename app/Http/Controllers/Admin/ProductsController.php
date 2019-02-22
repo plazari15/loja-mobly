@@ -10,6 +10,7 @@ use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Storage;
 
 class ProductsController extends Controller
 {
@@ -39,7 +40,19 @@ class ProductsController extends Controller
                     $categories[] = $catAncestor->id;
                 }
             }
-            dd($product->categories()->sync($categories));
+            $product->categories()->sync($categories);
+
+            $file = $request->file('images');
+
+            $storage = Storage::disk('public')->put('/photos', $file);
+
+            $image = $product->images()->create([
+                'alt' => $product->name,
+                'url' => $storage,
+                'principal' => true
+            ]);
+
+            dd($image);
 //            \DB::commit();
 //        }catch (\Exception $e){
 //            \DB::rollback();
