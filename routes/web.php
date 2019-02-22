@@ -12,9 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('errors.illustrated-layout');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('admin')->middleware('isAdmin')->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+});
+
+
