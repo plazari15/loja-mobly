@@ -7,6 +7,7 @@
 @stop
 
 @section('content')
+    @include('errors')
     <div class="content">
         <div class="row">
             <div class="col-md-12">

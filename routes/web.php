@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::prefix('admin')->middleware('isAdmin')->group(function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::get('/produtos', 'Admin\ProductsController@index')->name('home');
-    Route::get('/produtos/novo', 'Admin\ProductsController@create')->name('home');
+    Route::get('/produtos', 'Admin\ProductsController@index')->name('produtos.list');
+    Route::get('/produtos/novo', 'Admin\ProductsController@create')->name('produtos.create');
     Route::post('/produtos/novo', 'Admin\ProductsController@store')->name('produtos.post');
 });
 
