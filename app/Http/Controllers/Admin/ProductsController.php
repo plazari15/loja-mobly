@@ -9,16 +9,23 @@ use Collective\Html\FormBuilder;
 use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Kris\LaravelFormBuilder\FormBuilderTrait;
 
 class ProductsController extends Controller
 {
+    use FormBuilderTrait;
+
     public function index(){
+
+        $products = Product::all();
         return view('Products.index');
     }
 
     public function create(\Kris\LaravelFormBuilder\FormBuilder $formBuilder){
+        Log::info('Olá');
         $form = $formBuilder->create(ProductsForm::class, [
             'method' => 'POST',
             'url' => route('produtos.post')
@@ -28,6 +35,12 @@ class ProductsController extends Controller
     }
 
     public function store(Request $request){
+        $form = $this->form(ProductsForm::class);
+
+        if (!$form->isValid()) {
+            return redirect()->back()->with('error', $form->getErrors())->withInput();
+        }
+
         \DB::beginTransaction();
         try{
             \Log::info(__METHOD__." Inicia a gravação de um produto", [$request->all()]);
@@ -70,7 +83,9 @@ class ProductsController extends Controller
         }catch (\Exception $e){
             \DB::rollback();
             \Log::error(__METHOD__.' ERRO AO CRIAR PRODUTO', [$e->getMessage()]);
-            return Redirect::back()->with('error', 'Erro ao criar produto.'); //withInputs
+            return Redirect::back()
+                ->with('error', 'Erro ao criar produto.')
+                ->withInput($request->all());
         }
     }
 }

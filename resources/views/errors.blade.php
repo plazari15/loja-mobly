@@ -9,7 +9,13 @@
 @if ($message = Session::get('error'))
     <div class="alert alert-danger alert-block">
         <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
+        @if(is_array($message) > 1)
+            @foreach($message as $msg)
+                <strong>{{ $msg }}</strong><br>
+            @endforeach
+            @else
+            <strong>{{ $message }}</strong>
+            @endif
     </div>
 @endif
 
