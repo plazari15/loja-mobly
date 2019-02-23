@@ -11,6 +11,7 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
+                <p><a href="{{ route('produtos.create') }}" class="btn btn-success">CRIAR PRODUTO</a></p>
                 <div class="box box-primary">
                     <table class="table">
                         <thead>
@@ -30,7 +31,6 @@
                                     <td>{{ number_format($product->normal_price, 2, '.', ',') }}</td>
                                     <td>{{ $product->qtd }}</td>
                                     <td>
-                                        <a href="">DESATIVAR</a> ||
                                         <a href="{{ route('produtos.edit', $product->id) }}">EDITAR</a>
                                     </td>
                                 </tr>
