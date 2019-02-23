@@ -16,6 +16,10 @@ class isAdmin
      */
     public function handle($request, Closure $next)
     {
+        if(!$request->user()){
+            return Redirect::to('login');
+        }
+
         if(!$request->user()->is_admin){
             return Redirect::to('dashboard');
         }

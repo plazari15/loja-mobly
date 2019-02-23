@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
+use Kris\LaravelFormBuilder\Field;
 use Kris\LaravelFormBuilder\FormBuilderTrait;
 
 class ProductsController extends Controller
@@ -21,7 +22,27 @@ class ProductsController extends Controller
     public function index(){
 
         $products = Product::all();
-        return view('Products.index');
+
+        \Log::info(__METHOD__, [$products]);
+
+        return view('Products.index', compact('products'));
+    }
+
+    public function edit(\Kris\LaravelFormBuilder\FormBuilder $formBuilder, $id){
+
+        $product = Product::find($id);
+
+        $form = $formBuilder->create(ProductsForm::class, [
+            'method' => 'POST',
+            'url' => route('produtos.update', $product->id),
+            'model' => $product
+        ])->add('Atualizar Produto', Field::BUTTON_SUBMIT, [
+            'class' => 'btn btn-success'
+        ]);
+
+        \Log::info(__METHOD__, [$product]);
+
+        return view('Products.form', compact('form'));
     }
 
     public function create(\Kris\LaravelFormBuilder\FormBuilder $formBuilder){
@@ -29,22 +50,35 @@ class ProductsController extends Controller
         $form = $formBuilder->create(ProductsForm::class, [
             'method' => 'POST',
             'url' => route('produtos.post')
+        ])->add('Criar Produto', Field::BUTTON_SUBMIT, [
+            'class' => 'btn btn-success'
         ]);
 
         return view('Products.form', compact('form'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request, $id = null){
         $form = $this->form(ProductsForm::class);
 
         if (!$form->isValid()) {
-            return redirect()->back()->with('error', $form->getErrors())->withInput();
+            return redirect()->back()
+                ->withErrors($form->getErrors())
+                ->withInput($request->all());
         }
 
         \DB::beginTransaction();
         try{
+            if($id){
+                $product = Product::findOrFail($id);
+            }
+
             \Log::info(__METHOD__." Inicia a gravação de um produto", [$request->all()]);
-            $product = Product::create($request->all());
+            if($product){
+                $product->update($request->all());
+            }else{
+                $product = Product::create($request->all());
+            }
+
             $categories = [];
             \Log::info(__METHOD__." Obtendo todas as categorias e seus filhos");
             foreach ($request->category as $item) {

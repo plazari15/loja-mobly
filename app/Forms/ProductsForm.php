@@ -69,10 +69,8 @@ class ProductsForm extends Form
             ->add('length', Field::TEXT, [
                 'rules' => 'required',
                 'label' => 'Comprimento do Item'
-            ])
-            ->add('Cadastrar Produto', Field::BUTTON_SUBMIT, [
-                'class' => 'btn btn-success'
             ]);
+
     }
 
 

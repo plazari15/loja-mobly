@@ -9,8 +9,8 @@
 @section('content')
     @include('errors')
     <div class="content">
-        <div class="col-md-12">
-            <div class="row">
+        <div class="row">
+            <div class="col-md-12">
                 <div class="box box-primary">
                     <table class="table">
                         <thead>
@@ -22,12 +22,19 @@
                         <th></th>
                         </thead>
                         <tbody>
-                        <td>ID</td>
-                        <td>Nome</td>
-                        <td>SKU</td>
-                        <td>Preço</td>
-                        <th>Quantidades</th>
-                        <th></th>
+                            @foreach($products as $product)
+                                <tr>
+                                    <td>{{ $product->id }}</td>
+                                    <td>{{ $product->name }}</td>
+                                    <td>{{ $product->SKU }}</td>
+                                    <td>{{ number_format($product->normal_price, 2, '.', ',') }}</td>
+                                    <td>{{ $product->qtd }}</td>
+                                    <td>
+                                        <a href="">DESATIVAR</a> ||
+                                        <a href="{{ route('produtos.edit', $product->id) }}">EDITAR</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
