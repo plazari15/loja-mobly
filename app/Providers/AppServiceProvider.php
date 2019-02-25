@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Categories;
+use App\Observers\CategoriesObserver;
 use App\Observers\ProductsObserver;
 use App\Product;
 use Illuminate\Support\ServiceProvider;
@@ -15,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Product::observe(ProductsObserver::class);
+        Categories::observe(CategoriesObserver::class);
     }
 
     /**

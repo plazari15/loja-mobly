@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
         $form = $formBuilder->create(CategoryForm::class, [
             'method' => 'POST',
-            'url' => route('categories.post'),
+            'url' => route('categories.update', $category->id),
             'model' => $category
         ])->add('Editar Categoria', Field::BUTTON_SUBMIT, [
             'class' => 'btn btn-success'

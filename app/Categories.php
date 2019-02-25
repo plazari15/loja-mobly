@@ -13,16 +13,13 @@ class Categories extends Model
 
     protected $fillable = [
         'description',
-        'name'
+        'name',
+        'slug'
     ];
 
 
     public function products(){
         return $this->belongsToMany('App\Product');
-    }
-
-    public static function showOnlyRoot(){
-        $categories = \App\Categories::get()->toTree();
     }
 
     public static function showAsTree(){

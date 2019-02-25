@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'Store\IndexController@index');
+Route::get('/categoria/{slug}', 'Store\IndexController@index')->name('produtos.listagem');
 
 Auth::routes();
 

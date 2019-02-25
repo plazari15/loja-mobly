@@ -15,7 +15,7 @@
     <a href="#" class="brand-logo">Loja</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
         @foreach($categoriesRoot as $cat)
-            <li><a href="Home">{{ $cat->name }}</a></li>
+            <li><a href="{{ route('produtos.listagem', $cat->slug) }}">{{ $cat->name }}</a></li>
         @endforeach
     </ul>
 </div>
