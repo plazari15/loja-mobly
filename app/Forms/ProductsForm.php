@@ -34,7 +34,7 @@ class ProductsForm extends Form
             ->add('category', Field::CHOICE, [
                 'rules' => 'required',
                 'label' => 'Categoria (Você pode selecionar mais de 1)',
-                'choices' => $this->getCategories(),
+                'choices' => Categories::showAsTree(),
                 'expanded' => false,
                 'multiple' => true
             ])
@@ -71,22 +71,5 @@ class ProductsForm extends Form
                 'label' => 'Comprimento do Item'
             ]);
 
-    }
-
-
-    private function getCategories(){
-        $categories = \App\Categories::get()->toTree();
-
-        $traverse = function ($categories, $prefix = '-') use (&$traverse) {
-            foreach ($categories as $category) {
-                $this->cats[$category->id] = $prefix.' '.$category->name;
-
-                $traverse($category->children, $prefix.'-');
-            }
-
-            return $this->cats;
-        };
-
-        return $traverse($categories);
     }
 }
