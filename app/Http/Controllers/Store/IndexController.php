@@ -13,4 +13,12 @@ class IndexController extends Controller
         $categoriesRoot = Categories::whereNull('parent_id')->get();
         return view('index', compact('categoriesRoot'));
     }
+
+    public function category($cat){
+        $categoriesRoot = Categories::whereNull('parent_id')->get();
+
+        $categoriesSelected = Categories::whereSlug($cat)->first();
+
+        return view('index-category', compact('categoriesRoot', 'categoriesSelected'));
+    }
 }

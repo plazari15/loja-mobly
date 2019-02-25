@@ -1838,18 +1838,28 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['category'],
   data: function data() {
     return {
       produtos: [],
-      teste: 'OIII'
+      teste: 'OIII',
+      cat: this.category
     };
   },
   mounted: function mounted() {
     var _this = this;
 
-    axios.get('/api/produtos').then(function (data) {
-      _this.produtos = data.data.data;
-    });
+    console.log(this.cat);
+
+    if (this.cat != undefined) {
+      axios.get('/api/produtos/' + this.cat).then(function (data) {
+        _this.produtos = data.data.data;
+      });
+    } else {
+      axios.get('/api/produtos').then(function (data) {
+        _this.produtos = data.data.data;
+      });
+    }
   },
   methods: {//
   }
@@ -36988,16 +36998,23 @@ var render = function() {
             _c("p", [_vm._v(_vm._s(produto.description))])
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-action" }, [
-            _c("a", { attrs: { href: "#" } }, [_vm._v(_vm._s(_vm.teste))])
-          ])
+          _vm._m(0, true)
         ])
       ])
     }),
     0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "card-action" }, [
+      _c("a", { attrs: { href: "#" } }, [_vm._v("VISUALIZAR PRODUTO")])
+    ])
+  }
+]
 render._withStripped = true
 
 

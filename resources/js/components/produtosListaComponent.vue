@@ -11,7 +11,7 @@
                     <p>{{ produto.description }}</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">{{ teste }}</a>
+                    <a href="#">VISUALIZAR PRODUTO</a>
                 </div>
             </div>
         </div>
@@ -21,17 +21,27 @@
 
 <script>
     export default {
+        props: ['category'],
         data: function(){
             return {
                 produtos: [],
                 teste: 'OIII',
+                cat : this.category
             }
         },
         mounted() {
-            axios.get('/api/produtos')
-                .then((data) => {
-                   this.produtos = data.data.data;
-                });
+            console.log(this.cat);
+            if(this.cat != undefined){
+                axios.get('/api/produtos/'+this.cat)
+                    .then((data) => {
+                        this.produtos = data.data.data;
+                    });
+            }else{
+                axios.get('/api/produtos')
+                    .then((data) => {
+                        this.produtos = data.data.data;
+                    });
+            }
         },
         methods: {
             //

@@ -13,7 +13,7 @@ class Produtos extends Controller
     public function listProducts($category = null){
         if($category){
             $products = Product::whereHas('categories', function ($query) use ($category){
-                $query->where('category_id', $category);
+                $query->where('categories_id', $category);
             })->paginate();
         }else{
             $products = Product::with('images')->paginate();
