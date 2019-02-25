@@ -1,6 +1,6 @@
 @extends('Theme.app')
 @section('content')
     <div id="app">
-        <example-component></example-component>
+        <produtos-list></produtos-list>
     </div>
 @endsection
