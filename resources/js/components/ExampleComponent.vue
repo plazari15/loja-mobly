@@ -6,7 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        I'm an example component.     <a href="#!" class="collection-item"><span class="new badge">4</span>Alan</a>
                     </div>
                 </div>
             </div>

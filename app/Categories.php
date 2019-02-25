@@ -21,6 +21,10 @@ class Categories extends Model
         return $this->belongsToMany('App\Product');
     }
 
+    public static function showOnlyRoot(){
+        $categories = \App\Categories::get()->toTree();
+    }
+
     public static function showAsTree(){
         $categories = \App\Categories::get()->toTree();
 

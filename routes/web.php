@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-
-});
+Route::get('/', 'Store\IndexController@index');
 
 Auth::routes();
 
