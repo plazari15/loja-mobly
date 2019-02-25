@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\ProductsResource;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -46,5 +47,9 @@ class Produtos extends Controller
         }
 
         return \Response::json(['img' => $produtoImg], 200);
+    }
+
+    public function show($id){
+        return new ProductsResource(Product::find($id));
     }
 }
