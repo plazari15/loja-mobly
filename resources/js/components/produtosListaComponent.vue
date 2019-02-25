@@ -4,7 +4,7 @@
             <div class="card" >
                 <div class="card-image">
 
-                    <img v-bind:src="produto.images[0].url">
+                    <img v-bind:src="produto.cover">
                     <span class="card-title">{{ produto.name}}</span>
                 </div>
                 <div class="card-content">
@@ -24,7 +24,7 @@
         data: function(){
             return {
                 produtos: [],
-                teste: 'OIII'
+                teste: 'OIII',
             }
         },
         mounted() {
@@ -32,6 +32,9 @@
                 .then((data) => {
                    this.produtos = data.data.data;
                 });
+        },
+        methods: {
+            //
         }
     }
 </script>

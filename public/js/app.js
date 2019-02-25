@@ -1850,6 +1850,8 @@ __webpack_require__.r(__webpack_exports__);
     axios.get('/api/produtos').then(function (data) {
       _this.produtos = data.data.data;
     });
+  },
+  methods: {//
   }
 });
 
@@ -36975,7 +36977,7 @@ var render = function() {
       return _c("div", { staticClass: "col s4" }, [
         _c("div", { staticClass: "card" }, [
           _c("div", { staticClass: "card-image" }, [
-            _c("img", { attrs: { src: produto.images[0].url } }),
+            _c("img", { attrs: { src: produto.cover } }),
             _vm._v(" "),
             _c("span", { staticClass: "card-title" }, [
               _vm._v(_vm._s(produto.name))
