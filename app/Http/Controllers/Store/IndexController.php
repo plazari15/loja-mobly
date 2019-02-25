@@ -21,4 +21,11 @@ class IndexController extends Controller
 
         return view('index-category', compact('categoriesRoot', 'categoriesSelected'));
     }
+
+
+    public function produto($id){
+        $categoriesRoot = Categories::whereNull('parent_id')->get();
+
+        return view('product', compact('categoriesRoot', 'id'));
+    }
 }

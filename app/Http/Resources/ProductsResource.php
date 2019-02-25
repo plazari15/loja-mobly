@@ -18,17 +18,20 @@ class ProductsResource extends JsonResource
             'id' => $this->id,
             'name' => $this->name,
             'description' => $this->description,
-            'normal_price' => $this->normal_price,
-            'updated_price' => $this->updated_price,
+            'normal_price' => number_format($this->normal_price, 2, '.', ','),
+            'updated_price' => number_format($this->updated_price, 2, '.', ','),
             'in_promotion' => $this->updated_price < $this->normal_price ? true : false,
             'description' => $this->big_description,
+            'desc' => $this->description,
             'sku' => $this->SKU,
             'height' => $this->height,
             'width' => $this->width,
             'length' => $this->length,
             'weight' => $this->weight,
             'photos' => PhotosProductResource::collection($this->images),
-            'categories' => CategoriesProductResource::collection($this->categories)
+            'cover'  => $this->getLastPhoto(),
+            'categories' => CategoriesProductResource::collection($this->categories),
+            'comprar' => route('comprar.produto', $this->id)
         ];
         //return parent::toArray($request);
     }

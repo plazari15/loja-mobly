@@ -31,4 +31,10 @@ class Product extends Model
         return $this->hasMany('App\ProductImage');
     }
 
+    public function getLastPhoto(){
+        foreach ($this->images  as $image){
+            return url('/app/public/'.$image->url);
+        }
+    }
+
 }

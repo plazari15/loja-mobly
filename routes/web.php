@@ -13,6 +13,8 @@
 
 Route::get('/', 'Store\IndexController@index');
 Route::get('/categoria/{slug}', 'Store\IndexController@category')->name('produtos.listagem');
+Route::get('/produto/{id}', 'Store\IndexController@produto')->name('produtos.show');
+Route::get('add/produto/{id}', 'Store\IndexController@produto')->name('comprar.produto');
 
 Auth::routes();
 
