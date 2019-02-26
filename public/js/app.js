@@ -1849,6 +1849,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['produtoid'],
   data: function data() {
@@ -37084,11 +37085,7 @@ var render = function() {
           {
             staticClass: "btn btn-success btn-large",
             staticStyle: { "font-weight": "bold", "font-size": "22px" },
-            on: {
-              click: function($event) {
-                return _vm.addProduto(_vm.produto.id)
-              }
-            }
+            attrs: { href: _vm.produto.comprar }
           },
           [_vm._v("COMPRAR")]
         )

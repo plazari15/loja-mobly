@@ -8,7 +8,6 @@
 
 namespace App\Helpers;
 
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Session;
 
 class Cart {
@@ -73,6 +72,6 @@ class Cart {
     }
 
     public function cleanCart(){
-        Session::remove(self::session);
+        Session::flush(self::session);
     }
 }

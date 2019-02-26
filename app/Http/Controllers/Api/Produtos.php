@@ -4,10 +4,8 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Resources\ProductsResource;
 use App\Product;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Response;
-use Illuminate\Support\Facades\Storage;
+use Facades\App\Helpers\Cart; //LIVE FACADE
 
 class Produtos extends Controller
 {
@@ -54,6 +52,13 @@ class Produtos extends Controller
     }
 
     public function addToCart($id){
-        
+        $Product = Product::find($id);
+
+        return Cart::addProduct([
+            'id' => $Product->id,
+            'name' => $Product->name,
+            'price' => $Product->updated_price < $Product->normal_price ? $Product->updated_price : $Product->normal_price,
+            'qtd' => 1
+        ]);
     }
 }

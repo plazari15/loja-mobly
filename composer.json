@@ -14,7 +14,8 @@
         "kalnoy/nestedset": "^4.3",
         "kris/laravel-form-builder": "^1.16",
         "laravel/framework": "5.7.*",
-        "laravel/tinker": "^1.0"
+        "laravel/tinker": "^1.0",
+        "predis/predis": "^1.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

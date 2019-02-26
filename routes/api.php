@@ -20,4 +20,3 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('produtos/{categoria?}', 'Api\Produtos@listProducts');
 Route::get('/image/produtos/{id}', 'Api\Produtos@getProductImage');
 Route::get('/produto/{id}', 'Api\Produtos@show');
-Route::get('/produto/add/{id}', 'Api\Produtos@addToCart');

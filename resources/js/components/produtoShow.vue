@@ -15,8 +15,9 @@
                 <h4 style="color: #D50000">R$ {{ produto.normal_price }}</h4>
 
                 <div style="margin-top:3%">
-                    <a  class="btn btn-success btn-large" v-on:click="addProduto(produto.id)" style="font-weight: bold; font-size: 22px;">COMPRAR</a>
+                    <a  class="btn btn-success btn-large"  v-bind:href="produto.comprar" style="font-weight: bold; font-size: 22px;">COMPRAR</a>
                     <!--v-bind:href="produto.comprar"-->
+                    <!--v-on:click="addProduto(produto.id)"-->
                 </div>
             </div>
 
