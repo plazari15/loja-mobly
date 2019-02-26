@@ -15,7 +15,8 @@
                 <h4 style="color: #D50000">R$ {{ produto.normal_price }}</h4>
 
                 <div style="margin-top:3%">
-                    <a v-bind:href="produto.comprar" class="btn btn-success btn-large" style="font-weight: bold; font-size: 22px;">COMPRAR</a>
+                    <a  class="btn btn-success btn-large" v-on:click="addProduto(produto.id)" style="font-weight: bold; font-size: 22px;">COMPRAR</a>
+                    <!--v-bind:href="produto.comprar"-->
                 </div>
             </div>
 
@@ -51,7 +52,12 @@
                 });
         },
         methods: {
-            //
+            addProduto(id){
+                axios.post('/api/produto/add/'+this.id)
+                    .then((data) => {
+                        console.log('Produto Adicionado Ao Carrinho!');
+                    });
+            }
         }
     }
 </script>

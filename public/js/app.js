@@ -1848,6 +1848,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['produtoid'],
   data: function data() {
@@ -1866,7 +1867,12 @@ __webpack_require__.r(__webpack_exports__);
       _this.produto = data.data.data;
     });
   },
-  methods: {//
+  methods: {
+    addProduto: function addProduto(id) {
+      axios.post('/api/produto/add/' + this.id).then(function (data) {
+        console.log('Produto Adicionado Ao Carrinho!');
+      });
+    }
   }
 });
 
@@ -37078,7 +37084,11 @@ var render = function() {
           {
             staticClass: "btn btn-success btn-large",
             staticStyle: { "font-weight": "bold", "font-size": "22px" },
-            attrs: { href: _vm.produto.comprar }
+            on: {
+              click: function($event) {
+                return _vm.addProduto(_vm.produto.id)
+              }
+            }
           },
           [_vm._v("COMPRAR")]
         )

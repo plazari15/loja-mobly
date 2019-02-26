@@ -52,4 +52,8 @@ class Produtos extends Controller
     public function show($id){
         return new ProductsResource(Product::find($id));
     }
+
+    public function addToCart($id){
+        
+    }
 }

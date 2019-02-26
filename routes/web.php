@@ -11,10 +11,22 @@
 |
 */
 
+Route::get('/teste', function (){
+    $cart = new \App\Helpers\Cart();
+
+//    return [$cart->getCart()];
+    return [$cart->addProduct([
+        'id' => 1,
+        'price' => 120.00,
+        'name' => 'Roupa Chique DE POBRE',
+        'qtd' => 1
+    ])];
+});
+
 Route::get('/', 'Store\IndexController@index');
 Route::get('/categoria/{slug}', 'Store\IndexController@category')->name('produtos.listagem');
 Route::get('/produto/{id}', 'Store\IndexController@produto')->name('produtos.show');
-Route::get('add/produto/{id}', 'Store\IndexController@produto')->name('comprar.produto');
+Route::get('add/produto/{id}', 'Store\IndexController@addProdutoAoCarrinho')->name('add.produto');
 
 Auth::routes();
 
