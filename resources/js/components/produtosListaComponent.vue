@@ -11,7 +11,7 @@
                     <p>{{ produto.description }}</p>
                 </div>
                 <div class="card-action">
-                    <a href="#">VISUALIZAR PRODUTO</a>
+                    <a v-bind:href="'/produto/'+produto.id">VISUALIZAR PRODUTO</a>
                 </div>
             </div>
         </div>
@@ -30,7 +30,6 @@
             }
         },
         mounted() {
-            console.log(this.cat);
             if(this.cat != undefined){
                 axios.get('/api/produtos/'+this.cat)
                     .then((data) => {
