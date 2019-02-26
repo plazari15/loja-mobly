@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Resources\ProductsResource;
 use App\Product;
 use App\Http\Controllers\Controller;
-use Facades\App\Helpers\Cart; //LIVE FACADE
+use Facades\App\Helpers\Cart;
+use Illuminate\Support\Facades\Redirect; //LIVE FACADE
 
 class Produtos extends Controller
 {
@@ -54,11 +55,6 @@ class Produtos extends Controller
     public function addToCart($id){
         $Product = Product::find($id);
 
-        return Cart::addProduct([
-            'id' => $Product->id,
-            'name' => $Product->name,
-            'price' => $Product->updated_price < $Product->normal_price ? $Product->updated_price : $Product->normal_price,
-            'qtd' => 1
-        ]);
+        return Redirect::to(route('carrinho'));
     }
 }

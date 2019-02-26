@@ -1858,14 +1858,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     changeProduct: function changeProduct(produto) {
+      var _this2 = this;
+
       axios.put('/api/carrinho/mudaProduto', {
+        produto: produto
+      }).then(function (data) {
+        _this2.subtotal = data.data.subtotal.toFixed(2);
+      });
+    },
+    excluiProduto: function excluiProduto(produto) {
+      axios.put('/api/carrinho/deletaProduto', {
         produto: produto
       }).then(function (data) {
         console.log('sucesso');
       });
-    },
-    excluiProduto: function excluiProduto(produto) {
-      console.log(exclui);
     }
   }
 });
@@ -37189,7 +37195,7 @@ var render = function() {
             {
               staticClass: "btn btn-large btn-success",
               staticStyle: { "margin-top": "5%", "font-size": "22px" },
-              attrs: { href: "" }
+              attrs: { href: "/checkout" }
             },
             [_vm._v("FINALIZAR COMPRA")]
           )

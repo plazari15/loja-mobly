@@ -44,7 +44,7 @@
                     </tbody>
                 </table>
 
-                <a href="" style="margin-top:5%;font-size:22px;" class="btn btn-large btn-success">FINALIZAR COMPRA</a>
+                <a href="/checkout" style="margin-top:5%;font-size:22px;" class="btn btn-large btn-success">FINALIZAR COMPRA</a>
             </div>
         </div>
     </div>
@@ -77,11 +77,16 @@
                     produto: produto
                 })
                     .then((data) => {
-                        console.log('sucesso');
+                        this.subtotal = data.data.subtotal.toFixed(2);
                     });
             },
             excluiProduto(produto){
-                console.log(exclui);
+                axios.put('/api/carrinho/deletaProduto', {
+                    produto: produto
+                })
+                    .then((data) => {
+                        console.log('sucesso');
+                    });
             }
         }
     }

@@ -20,10 +20,35 @@ class CartController extends Controller
     }
 
     public function mudaProduto(Request $request){
-        if(Cart::changeProduct($request->produto)){
+        try{
+            Cart::changeProduct($request->produto);
+
             return \Response::json([
+                'subtotal' => Cart::getPrice(),
                 'message' => 'produto Atualizado com sucesso!'
             ], 200);
+        }catch (\Exception $e){
+            return \Response::json([
+                'message' => 'erro ao alterar produto'
+            ], 400);
         }
+    }
+
+    public function deletaProduto(Request $request){
+
+        try{
+            Cart::removeProduct($request->produto['id']);
+
+            return \Response::json([
+                'message' => 'produto Removido com sucesso!'
+            ], 200);
+        }catch (\Exception $e){
+            return \Response::json([
+                'message' => 'Erro ao remover produto!'
+            ], 400);
+        }
+
+
+
     }
 }
