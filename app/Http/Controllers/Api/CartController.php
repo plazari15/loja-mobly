@@ -18,4 +18,12 @@ class CartController extends Controller
             'subtotal' => $subtotal
         ], 200);
     }
+
+    public function mudaProduto(Request $request){
+        if(Cart::changeProduct($request->produto)){
+            return \Response::json([
+                'message' => 'produto Atualizado com sucesso!'
+            ], 200);
+        }
+    }
 }

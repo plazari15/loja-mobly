@@ -73,7 +73,12 @@
         },
         methods: {
             changeProduct(produto){
-                console.log(muda);
+                axios.put('/api/carrinho/mudaProduto', {
+                    produto: produto
+                })
+                    .then((data) => {
+                        console.log('sucesso');
+                    });
             },
             excluiProduto(produto){
                 console.log(exclui);

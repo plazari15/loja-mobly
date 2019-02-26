@@ -7,3 +7,5 @@ https://github.com/jeroennoten/Laravel-AdminLTE
 https://github.com/lazychaser/laravel-nestedset
 
 https://github.com/kristijanhusak/laravel-form-builder
+
+https://github.com/elasticquent/Elasticquent

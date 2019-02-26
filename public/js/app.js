@@ -1858,7 +1858,11 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     changeProduct: function changeProduct(produto) {
-      console.log(muda);
+      axios.put('/api/carrinho/mudaProduto', {
+        produto: produto
+      }).then(function (data) {
+        console.log('sucesso');
+      });
     },
     excluiProduto: function excluiProduto(produto) {
       console.log(exclui);
