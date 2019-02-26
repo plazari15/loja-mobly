@@ -22,6 +22,22 @@ class Cart {
         return false;
     }
 
+    public function getPrice(){
+        if(Session::has(self::session)){
+            $carrinho = Session::get(self::session);
+
+            $subtotal = 0;
+            foreach ($carrinho as $item) {
+                $subtotal += $item['qtd'] * $item['price'];
+            }
+
+            return $subtotal;
+        }
+
+        return false;
+
+    }
+
     public function addProduct(array $product){
         $cart = $this->getCart();
 

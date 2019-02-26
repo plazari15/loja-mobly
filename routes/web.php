@@ -14,13 +14,7 @@
 Route::get('/teste', function (){
     $cart = new \App\Helpers\Cart();
 
-    return [$cart->getCart()];
-    return [$cart->addProduct([
-        'id' => 1,
-        'price' => 120.00,
-        'name' => 'Roupa Chique DE POBRE',
-        'qtd' => 1
-    ])];
+    return [$cart->getPrice()];
 });
 
 Route::get('/', 'Store\IndexController@index');
@@ -28,6 +22,7 @@ Route::get('/categoria/{slug}', 'Store\IndexController@category')->name('produto
 Route::get('/produto/{id}', 'Store\IndexController@produto')->name('produtos.show');
 Route::get('add/produto/{id}', 'Api\Produtos@addToCart')->name('add.produto');
 Route::get('/produto/add/{id}', 'Api\Produtos@addToCart');
+Route::get('/carrinho', 'Store\CartControllerStore@index');
 
 Auth::routes();
 
