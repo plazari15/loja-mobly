@@ -38,6 +38,26 @@ class Cart {
 
     }
 
+    public function changeProduct(array $product){
+        $cart = $this->getCart();
+        $cart = $cart;
+
+        foreach ($cart as $idItem => $item) {
+            if ($idItem == $product['id']) {
+                $cart[$product['id']] = [
+                    'id' => $item['id'],
+                    'name' => $product['name'],
+                    'price' => $product['price'],
+                    'qtd' => $product['qtd'],
+                ];
+            }
+        }
+
+        Session::put(self::session, $cart);
+
+        return Session::get(self::session);
+    }
+
     public function addProduct(array $product){
         $cart = $this->getCart();
 

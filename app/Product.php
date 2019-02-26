@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Elasticquent\ElasticquentTrait;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    use ElasticquentTrait;
+
     protected $fillable = [
       'name',
       'description',
@@ -20,6 +23,21 @@ class Product extends Model
       'width',
       'length',
       'weight',
+    ];
+
+    protected $mappingProperties = [
+        'name' => [
+            'type' => 'text',
+            "analyzer" => "standard",
+        ],
+        'description' => [
+            'type' => 'text',
+            "analyzer" => "standard",
+        ],
+        'description' => [
+            'type' => 'text',
+            "analyzer" => "standard",
+        ],
     ];
 
 

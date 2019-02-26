@@ -17,6 +17,10 @@ volumes:
   mobly-redis-data:
     driver: local
 
+  # Redis Data
+  mobly-elasticsearch:
+    driver: local
+
 services:
   # MySQL (5.7)
   mysql:
@@ -40,7 +44,19 @@ services:
     volumes:
       - mobly-redis-data:/data
     ports:
-      - "6379:6379"
+      - "6380:6379"
+
+  elasticsearch:
+    image: elasticsearch:5-alpine
+    container_name: elastic-search
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      - discovery.type=single-node
+      - elasticsearch:tag
+    volumes:
+      - mobly-elasticsearch
 
   # PHP (with Nginx)
   # you can change from nginx to apache, just change session 'image'
@@ -65,3 +81,4 @@ services:
     links:
       - mysql
       - cache
+      - elasticsearch

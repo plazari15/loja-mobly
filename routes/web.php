@@ -12,9 +12,13 @@
 */
 
 Route::get('/teste', function (){
-    $cart = new \App\Helpers\Cart();
+//    $cart = new \App\Helpers\Cart();
+//
+//    return [$cart->getPrice()];
 
-    return [$cart->getPrice()];
+    //return [\App\Product::addAllToIndex()];
+
+    return [\App\Product::searchByQuery(['match' => ['name' => '2eqwq']])];
 });
 
 Route::get('/', 'Store\IndexController@index');
