@@ -32,3 +32,12 @@ Desenvolvido utilizando Docker e as Imagens do Ambientum [https://github.com/amb
 O Projeto é acessível pela URL localhost:7000
 
 
+Para acessar o painel administrativo: http://localhost:7000/admin/home
+
+Usuário: admin@admin.com
+Senha: admin
+
+Para visualizar os produtos, cadastre-os no painel administrativo em http://localhost:7000/admin/produtos
+
+Ao Rodar o Seeder, ele já cria algumas categorias e também algumas caracteristicas. Mas você pode criar novas categorias em http://localhost:7000/admin/categories
+

@@ -113,6 +113,11 @@ return [
             'text' => 'Produtos',
             'url'  => 'admin/produtos',
         ],
+        'CATEGORIAS',
+        [
+            'text' => 'Categorias',
+            'url'  => 'admin/categories',
+        ],
     ],
 
     /*

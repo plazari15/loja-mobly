@@ -11,7 +11,7 @@
     <div class="content">
         <div class="row">
             <div class="col-md-12">
-                <p><a href="{{ route('produtos.create') }}" class="btn btn-success">CRIAR PRODUTO</a></p>
+                <p><a href="{{ route('produtos.create') }}" class="btn btn-success">CRIAR CATEGORIA</a></p>
                 <div class="box box-primary">
                     <table class="table">
                         <thead>
