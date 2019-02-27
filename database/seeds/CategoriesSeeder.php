@@ -11,7 +11,6 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-//        \App\Categories::truncate();
 
         \App\Categories::create([
             'name'          => 'Roupas',
