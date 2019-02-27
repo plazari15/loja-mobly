@@ -29,12 +29,15 @@ Desenvolvido utilizando Docker e as Imagens do Ambientum [https://github.com/amb
 4. execute o comando `php artisan key:generate`
 4. Para facilitar, criei algumas seeds e para isso, só executar o comando `php artisan db:seed`
 
-O Projeto é acessível pela URL localhost:7000
+#Acesso ao projeto
+
+*URL* O Projeto é acessível pela URL localhost:7000
 
 
 Para acessar o painel administrativo: http://localhost:7000/admin/home
 
 Usuário: admin@admin.com
+
 Senha: admin
 
 Para visualizar os produtos, cadastre-os no painel administrativo em http://localhost:7000/admin/produtos
