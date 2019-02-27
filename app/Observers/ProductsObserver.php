@@ -25,7 +25,7 @@ class ProductsObserver
      */
     public function updated(Product $product)
     {
-        //
+        Product::addAllToIndex();
     }
 
     /**
@@ -36,7 +36,7 @@ class ProductsObserver
      */
     public function deleted(Product $product)
     {
-        //
+        Product::addAllToIndex();
     }
 
     /**
@@ -47,7 +47,7 @@ class ProductsObserver
      */
     public function restored(Product $product)
     {
-        //
+        Product::addAllToIndex();
     }
 
     /**

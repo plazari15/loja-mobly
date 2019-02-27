@@ -16,9 +16,9 @@ Route::get('/teste', function (){
 //
 //    return [$cart->getPrice()];
 
-    //return [\App\Product::addAllToIndex()];
+    [\App\Product::addAllToIndex()];
 
-    return [\App\Product::searchByQuery(['match' => ['name' => '2eqwq']])];
+    return [\App\Product::searchByQuery(['wildcard' => ['name' => 'calça']])];
 });
 
 Route::get('/', 'Store\IndexController@index');
@@ -30,6 +30,7 @@ Route::get('/carrinho', 'Store\CartControllerStore@index')->name('carrinho');
 Route::get('/checkout', 'Store\CheckoutController@index')->name('checkout');
 Route::post('/checkout/register', 'Store\CheckoutController@register')->name('client.register');
 Route::get('/checkout/login', 'Store\CheckoutController@index')->name('client.login');
+Route::get('/search/', 'Store\IndexController@search');
 
 Auth::routes();
 
