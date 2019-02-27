@@ -61,8 +61,13 @@ class CartController extends Controller
             ], 400);
         }
 
-        EmitirPedido::dispatchNow($request->all(), Cart::getCart());
+        EmitirPedido::dispatch($request->all(), Cart::getCart());
 
+//        Cart::cleanCart();
+
+        return \Response::json([
+            'message' => 'Pedido inserido na fila para ser emitido!'
+        ], 200);
 
     }
 }

@@ -2113,9 +2113,9 @@ __webpack_require__.r(__webpack_exports__);
         pagamento: this.pagamento,
         dadosFaturamento: this.dadosFaturamento
       }).then(function (data) {
-        console.log('sucesso');
+        alert('Pedido em Fila para ser Emitido.');
       }).catch(function (data) {
-        console.log('error');
+        alert('Erro ao emitir o pedido. Verifique os campos.');
       });
     }
   }
@@ -38068,6 +38068,7 @@ var render = function() {
         "a",
         {
           staticClass: "btn btn-success btn-large",
+          staticStyle: { "font-size": "22px", color: "white" },
           on: {
             click: function($event) {
               return _vm.emitirPedido()

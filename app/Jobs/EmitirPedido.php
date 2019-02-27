@@ -86,7 +86,7 @@ class EmitirPedido implements ShouldQueue
                 'shipping_state' => $this->dadosPedido['dadosPessoais']['estado'],
                 'shipping_neighborhood' => $this->dadosPedido['dadosPessoais']['bairro'],
                 'shipping_number' => $this->dadosPedido['dadosPessoais']['numero'],
-                'shipping_complement' => $this->dadosPedido['dadosPessoais']['complemento'],
+                'shipping_complement' => $this->dadosPedido['dadosPessoais']['complemento'] ?? 'S/C',
 
                 'invoice_zip_code' => $this->dadosPedido['dadosFaturamento']['cep'],
                 'invoice_street' => $this->dadosPedido['dadosFaturamento']['endereco'],
@@ -94,7 +94,7 @@ class EmitirPedido implements ShouldQueue
                 'invoice_state' => $this->dadosPedido['dadosFaturamento']['estado'],
                 'invoice_neighborhood' => $this->dadosPedido['dadosFaturamento']['bairro'],
                 'invoice_number' => $this->dadosPedido['dadosFaturamento']['numero'],
-                'invoice_complement' => $this->dadosPedido['dadosFaturamento']['complemento'],
+                'invoice_complement' => $this->dadosPedido['dadosFaturamento']['complemento']  ?? 'S/C',
                 'status_id' => 1,
             ]);
 

@@ -145,7 +145,7 @@
             </div>
 
             <div class="col s12">
-                <a class="btn btn-success btn-large" v-on:click="emitirPedido()">EMITIR PEDIDO</a>
+                <a class="btn btn-success btn-large" style="font-size: 22px; color: white;" v-on:click="emitirPedido()">EMITIR PEDIDO</a>
             </div>
 
         </div>
@@ -226,9 +226,9 @@
                     dadosFaturamento : this.dadosFaturamento,
                 })
                     .then((data) => {
-                        console.log('sucesso');
+                        alert('Pedido em Fila para ser Emitido.');
                     }).catch((data) => {
-                        console.log('error');
+                        alert('Erro ao emitir o pedido. Verifique os campos.');
                 });
             }
         }
