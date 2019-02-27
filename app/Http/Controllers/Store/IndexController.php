@@ -31,18 +31,26 @@ class IndexController extends Controller
     }
 
     public function search(Request $request){
-        $categoriesRoot = Categories::whereNull('parent_id')->get();
+        Product::addAllToIndex(); //Redundância, desnecessária
+
+        try{
+            $categoriesRoot = Categories::whereNull('parent_id')->get();
 
 
-        if($request->input('query')){
-            $product = \App\Product::searchByQuery(['fuzzy' => ['name' => $request->input('query')]]);
+            if($request->input('query')){
+                $product = \App\Product::searchByQuery(['fuzzy' => ['name' => $request->input('query')]]);
 
-            if($product){
+                if($product){
                     $id = $product[0]->id;
 
 
-                return view('product', compact('categoriesRoot', 'id'));
+                    return view('product', compact('categoriesRoot', 'id'));
+                }
             }
+        }catch (\Exception $e){
+            $categoriesRoot = Categories::whereNull('parent_id')->get();
+            return view('index', compact('categoriesRoot'))->with('error', 'nada Encontrado');
         }
+
     }
 }

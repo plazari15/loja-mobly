@@ -12,9 +12,21 @@ class ProductsObserver
      * @param  \App\Product  $product
      * @return void
      */
+    public function saved(Product $product)
+    {
+        Product::addAllToIndex();
+    }
+
+    public function created(Product $product)
+    {
+        Product::addAllToIndex();
+    }
+
     public function creating(Product $product)
     {
-        //
+       if(!isset($product->updated_price)){
+           $product->updated_price = '0.00';
+       }
     }
 
     /**

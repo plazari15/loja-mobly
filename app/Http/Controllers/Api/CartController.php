@@ -63,7 +63,7 @@ class CartController extends Controller
 
         EmitirPedido::dispatch($request->all(), Cart::getCart());
 
-//        Cart::cleanCart();
+        Cart::cleanCart();
 
         return \Response::json([
             'message' => 'Pedido inserido na fila para ser emitido!'

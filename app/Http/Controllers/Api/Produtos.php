@@ -55,6 +55,13 @@ class Produtos extends Controller
     public function addToCart($id){
         $Product = Product::find($id);
 
+        Cart::addProduct([
+            'id' => $Product->id,
+            'name' => $Product->name,
+            'price' => $Product->normal_price,
+            'qtd' => $Product->qtd,
+        ]);
+
         return Redirect::to(route('carrinho'));
     }
 }

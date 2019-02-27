@@ -68,6 +68,8 @@ class ProductsController extends Controller
 
         \DB::beginTransaction();
         try{
+            $product = false;
+
             if($id){
                 $product = Product::findOrFail($id);
             }

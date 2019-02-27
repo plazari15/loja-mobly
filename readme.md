@@ -28,4 +28,3 @@ Desenvolvido utilizando Docker e as Imagens do Ambientum [https://github.com/amb
 3.  Acesse o container com o comando `docker exec -it mobly-app bash` e execute o comando `php artisan migrate`
 4. Para facilitar, criei algumas seeds e para isso, só rodar o comando `php artisan db:seed`
 
-
