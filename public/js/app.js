@@ -2199,6 +2199,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['produtoid'],
   data: function data() {
@@ -38277,7 +38285,20 @@ var render = function() {
       _c("h2", [_vm._v("Descrição do Produto")]),
       _vm._v(" "),
       _c("p", [_vm._v(_vm._s(_vm.produto.description))])
-    ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "col s12", staticStyle: { "margin-top": "3%" } },
+      [
+        _c("h2", [_vm._v("Recursos")]),
+        _vm._v(" "),
+        _vm._l(_vm.produto.features, function(feature) {
+          return _c("ul", [_c("li", [_vm._v(_vm._s(feature.name) + " ")])])
+        })
+      ],
+      2
+    )
   ])
 }
 var staticRenderFns = []

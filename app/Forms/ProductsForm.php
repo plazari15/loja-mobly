@@ -3,6 +3,7 @@
 namespace App\Forms;
 
 use App\Categories;
+use App\Feature;
 use Kris\LaravelFormBuilder\Field;
 use Kris\LaravelFormBuilder\Form;
 
@@ -35,6 +36,13 @@ class ProductsForm extends Form
                 'rules' => 'required',
                 'label' => 'Categoria (Você pode selecionar mais de 1)',
                 'choices' => Categories::showAsTree(),
+                'expanded' => false,
+                'multiple' => true
+            ])
+            ->add('features', Field::CHOICE, [
+                'rules' => 'required',
+                'label' => 'Caracteristicas',
+                'choices' => Feature::getAll(),
                 'expanded' => false,
                 'multiple' => true
             ])

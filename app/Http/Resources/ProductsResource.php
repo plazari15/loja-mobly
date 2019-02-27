@@ -31,7 +31,8 @@ class ProductsResource extends JsonResource
             'photos' => PhotosProductResource::collection($this->images),
             'cover'  => $this->getLastPhoto(),
             'categories' => CategoriesProductResource::collection($this->categories),
-            'comprar' => route('add.produto', $this->id)
+            'comprar' => route('add.produto', $this->id),
+            'features' => ProductFeature::collection($this->features)
         ];
         //return parent::toArray($request);
     }

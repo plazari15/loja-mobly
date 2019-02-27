@@ -96,6 +96,13 @@ class ProductsController extends Controller
                 \Log::info(__METHOD__." Categorias Salvas");
             }
 
+            $featuresToSave = [];
+            foreach ($request->features as $item) {
+                $featuresToSave[] = $item;
+            }
+
+            $product->features()->sync($featuresToSave);
+
             \Log::info(__METHOD__." Gravando Imagem");
             $file = $request->file('images');
 

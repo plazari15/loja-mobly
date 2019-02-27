@@ -45,6 +45,10 @@ class Product extends Model
         return $this->belongsToMany('App\Categories');
     }
 
+    public function features(){
+        return $this->belongsToMany('App\Feature');
+    }
+
     public function images(){
         return $this->hasMany('App\ProductImage');
     }

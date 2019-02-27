@@ -26,6 +26,14 @@
 
             <p>{{ produto.description }}</p>
         </div>
+
+        <div class="col s12" style="margin-top: 3%">
+            <h2>Recursos</h2>
+
+            <ul v-for="feature in produto.features">
+                <li>{{ feature.name }} </li>
+            </ul>
+        </div>
     </div>
 
 
