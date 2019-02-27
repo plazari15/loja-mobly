@@ -26,7 +26,9 @@ Desenvolvido utilizando Docker e as Imagens do Ambientum [https://github.com/amb
 1. basta executar o comando `docker-compose up -d` para executar e instalar os containers.
 2. Copie o arquivo .env.example, ele já contem as variáveis utilizadas no ambiente do Docker.
 3.  Acesse o container com o comando `docker exec -it mobly-app bash` e execute o comando `php artisan migrate`
-4. Para facilitar, criei algumas seeds e para isso, só rodar o comando `php artisan db:seed`
+4. execute o comando `php artisan key:generate`
+4. Para facilitar, criei algumas seeds e para isso, só executar o comando `php artisan db:seed`
 
 O Projeto é acessível pela URL localhost:7000
+
 
