@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\EmitirPedidoRequest;
+use App\Jobs\EmitirPedido;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Facades\App\Helpers\Cart as Cart;
@@ -48,6 +50,18 @@ class CartController extends Controller
             ], 400);
         }
 
+
+
+    }
+
+    public function emitirPedido(EmitirPedidoRequest $request){
+        if(!$request->validated()){
+            return \Response::json([
+                'message' => 'Erro ao validar campos do pedido. Verifique os campos e tente novamente.!'
+            ], 400);
+        }
+
+        EmitirPedido::dispatchNow($request->all(), Cart::getCart());
 
 
     }

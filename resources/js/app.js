@@ -26,6 +26,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('produtos-list', require('./components/produtosListaComponent.vue').default);
 Vue.component('produto-show', require('./components/produtoShow.vue').default);
 Vue.component('carrinho-compras', require('./components/Cart.vue').default);
+Vue.component('checkout', require('./components/Checkout.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

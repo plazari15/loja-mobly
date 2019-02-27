@@ -1878,6 +1878,251 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Checkout.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Checkout.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: [],
+  data: function data() {
+    return {
+      dadosPessoais: {
+        nome: '',
+        email: '',
+        cpfcnpj: '',
+        sobrenome: '',
+        cep: '',
+        endereco: '',
+        bairro: '',
+        numero: '',
+        complemento: '',
+        cidade: '',
+        estado: '',
+        rg: '',
+        ddd_cel: '',
+        celphone: ''
+      },
+      pagamento: {
+        tipo: '',
+        cartao: {
+          numero: '',
+          cvv: '',
+          nome: '',
+          vencimento: ''
+        }
+      },
+      dadosFaturamento: {
+        cep: '',
+        endereco: '',
+        bairro: '',
+        numero: '',
+        complemento: '',
+        cidade: '',
+        estado: ''
+      }
+    };
+  },
+  mounted: function mounted() {},
+  methods: {
+    getCepPessoal: function getCepPessoal() {
+      var _this = this;
+
+      axios.get('https://viacep.com.br/ws/' + this.dadosPessoais.cep + '/json/').then(function (data) {
+        console.log(data.data);
+        _this.dadosPessoais.endereco = data.data.logradouro;
+        _this.dadosPessoais.bairro = data.data.bairro;
+        _this.dadosPessoais.cidade = data.data.localidade;
+        _this.dadosPessoais.estado = data.data.uf;
+      });
+    },
+    getCepFat: function getCepFat() {
+      var _this2 = this;
+
+      axios.get('https://viacep.com.br/ws/' + this.dadosFaturamento.cep + '/json/').then(function (data) {
+        console.log(data.data);
+        _this2.dadosFaturamento.endereco = data.data.logradouro;
+        _this2.dadosFaturamento.bairro = data.data.bairro;
+        _this2.dadosFaturamento.cidade = data.data.localidade;
+        _this2.dadosFaturamento.estado = data.data.uf;
+      });
+    },
+    emitirPedido: function emitirPedido() {
+      axios.post('/api/carrinho/emitirPedido', {
+        dadosPessoais: this.dadosPessoais,
+        pagamento: this.pagamento,
+        dadosFaturamento: this.dadosFaturamento
+      }).then(function (data) {
+        console.log('sucesso');
+      }).catch(function (data) {
+        console.log('error');
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=script&lang=js& ***!
@@ -37238,6 +37483,687 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Checkout.vue?vue&type=template&id=715e4fb1&":
+/*!***********************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Checkout.vue?vue&type=template&id=715e4fb1& ***!
+  \***********************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "col s12" }, [
+    _c("h1", [_vm._v("Dados Pessoais")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s12" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.cpfcnpj,
+            expression: "dadosPessoais.cpfcnpj"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "nome", type: "text" },
+        domProps: { value: _vm.dadosPessoais.cpfcnpj },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "cpfcnpj", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "nome" } }, [_vm._v("CPF/CNPJ")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s6" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.email,
+            expression: "dadosPessoais.email"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "email", type: "text" },
+        domProps: { value: _vm.dadosPessoais.email },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "email", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "email" } }, [_vm._v("Email")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s2" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.ddd_cel,
+            expression: "dadosPessoais.ddd_cel"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "email", type: "text" },
+        domProps: { value: _vm.dadosPessoais.ddd_cel },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "ddd_cel", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "email" } }, [_vm._v("DDD")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s4" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.celphone,
+            expression: "dadosPessoais.celphone"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "email", type: "text" },
+        domProps: { value: _vm.dadosPessoais.celphone },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "celphone", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "email" } }, [_vm._v("Celular")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s6" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.rg,
+            expression: "dadosPessoais.rg"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "email", type: "text" },
+        domProps: { value: _vm.dadosPessoais.rg },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "rg", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "email" } }, [_vm._v("RG")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s6" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.nome,
+            expression: "dadosPessoais.nome"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "nome", type: "text" },
+        domProps: { value: _vm.dadosPessoais.nome },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "nome", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "nome" } }, [_vm._v("Nome")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s6" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.sobrenome,
+            expression: "dadosPessoais.sobrenome"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "sobrenome", type: "text" },
+        domProps: { value: _vm.dadosPessoais.sobrenome },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "sobrenome", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "sobrenome" } }, [_vm._v("Sobrenome")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s6" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.cep,
+            expression: "dadosPessoais.cep"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosPessoais.cep },
+        on: {
+          blur: function($event) {
+            return _vm.getCepPessoal()
+          },
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "cep", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("CEP")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s12" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.endereco,
+            expression: "dadosPessoais.endereco"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosPessoais.endereco },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "endereco", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Endereço")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s12" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.bairro,
+            expression: "dadosPessoais.bairro"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosPessoais.bairro },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "bairro", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Bairro")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s6" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.numero,
+            expression: "dadosPessoais.numero"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosPessoais.numero },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "numero", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Numero")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s6" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.complemento,
+            expression: "dadosPessoais.complemento"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosPessoais.complemento },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "complemento", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Complemento ")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s12" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.cidade,
+            expression: "dadosPessoais.cidade"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosPessoais.cidade },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "cidade", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Cidade ")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s12" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosPessoais.estado,
+            expression: "dadosPessoais.estado"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosPessoais.estado },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosPessoais, "estado", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Estado ")])
+    ]),
+    _vm._v(" "),
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s12" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosFaturamento.cep,
+            expression: "dadosFaturamento.cep"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosFaturamento.cep },
+        on: {
+          blur: function($event) {
+            return _vm.getCepFat()
+          },
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosFaturamento, "cep", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("CEP")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s12" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosFaturamento.endereco,
+            expression: "dadosFaturamento.endereco"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosFaturamento.endereco },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosFaturamento, "endereco", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Endereço")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s12" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosFaturamento.bairro,
+            expression: "dadosFaturamento.bairro"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosFaturamento.bairro },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosFaturamento, "bairro", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Bairro")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s6" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosFaturamento.numero,
+            expression: "dadosFaturamento.numero"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosFaturamento.numero },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosFaturamento, "numero", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Numero")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s6" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosFaturamento.complemento,
+            expression: "dadosFaturamento.complemento"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosFaturamento.complemento },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosFaturamento, "complemento", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Complemento ")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s12" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosFaturamento.cidade,
+            expression: "dadosFaturamento.cidade"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosFaturamento.cidade },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosFaturamento, "cidade", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Cidade ")])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "input-field col s12" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.dadosFaturamento.estado,
+            expression: "dadosFaturamento.estado"
+          }
+        ],
+        staticClass: "validate",
+        attrs: { placeholder: "Placeholder", id: "CEP", type: "text" },
+        domProps: { value: _vm.dadosFaturamento.estado },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.$set(_vm.dadosFaturamento, "estado", $event.target.value)
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("label", { attrs: { for: "CEP" } }, [_vm._v("Estado ")])
+    ]),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _vm._m(2),
+    _vm._v(" "),
+    _vm._m(3),
+    _vm._v(" "),
+    _vm._m(4),
+    _vm._v(" "),
+    _c("div", { staticClass: "col s12" }, [
+      _c(
+        "a",
+        {
+          staticClass: "btn btn-success btn-large",
+          on: {
+            click: function($event) {
+              return _vm.emitirPedido()
+            }
+          }
+        },
+        [_vm._v("EMITIR PEDIDO")]
+      )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-field col s12" }, [
+      _c("h1", [_vm._v("Dados de Faturamento")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "input-field col s12" }, [
+      _c("h1", [_vm._v("Dados de pagamento")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("label", [
+        _c("input", {
+          attrs: { name: "pagamento", type: "radio", checked: "" }
+        }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Boleto")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _c("label", [
+        _c("input", {
+          attrs: { name: "pagamento", type: "radio", checked: "" }
+        }),
+        _vm._v(" "),
+        _c("span", [_vm._v("Cartão")])
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col s12", attrs: { id: "cartao" } }, [
+      _c("div", { staticClass: "input-field col s12" }, [
+        _c("input", {
+          staticClass: "validate",
+          attrs: { placeholder: "Placeholder", id: "CEP", type: "text" }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "CEP" } }, [_vm._v("NUMERO CARTAO ")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-field col s12" }, [
+        _c("input", {
+          staticClass: "validate",
+          attrs: { placeholder: "Placeholder", id: "CEP", type: "text" }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "CEP" } }, [_vm._v("NOME TITULAR ")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "input-field col s3" }, [
+        _c("input", {
+          staticClass: "validate",
+          attrs: { placeholder: "Placeholder", id: "CEP", type: "text" }
+        }),
+        _vm._v(" "),
+        _c("label", { attrs: { for: "CEP" } }, [_vm._v("VENCIMENTO ")])
+      ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e&":
 /*!*******************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/ExampleComponent.vue?vue&type=template&id=299e239e& ***!
@@ -49543,6 +50469,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 Vue.component('produtos-list', __webpack_require__(/*! ./components/produtosListaComponent.vue */ "./resources/js/components/produtosListaComponent.vue").default);
 Vue.component('produto-show', __webpack_require__(/*! ./components/produtoShow.vue */ "./resources/js/components/produtoShow.vue").default);
 Vue.component('carrinho-compras', __webpack_require__(/*! ./components/Cart.vue */ "./resources/js/components/Cart.vue").default);
+Vue.component('checkout', __webpack_require__(/*! ./components/Checkout.vue */ "./resources/js/components/Checkout.vue").default);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -49677,6 +50604,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Cart_vue_vue_type_template_id_b7f93bea___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Cart_vue_vue_type_template_id_b7f93bea___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/Checkout.vue":
+/*!**********************************************!*\
+  !*** ./resources/js/components/Checkout.vue ***!
+  \**********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _Checkout_vue_vue_type_template_id_715e4fb1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkout.vue?vue&type=template&id=715e4fb1& */ "./resources/js/components/Checkout.vue?vue&type=template&id=715e4fb1&");
+/* harmony import */ var _Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Checkout.vue?vue&type=script&lang=js& */ "./resources/js/components/Checkout.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _Checkout_vue_vue_type_template_id_715e4fb1___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _Checkout_vue_vue_type_template_id_715e4fb1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/Checkout.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/Checkout.vue?vue&type=script&lang=js&":
+/*!***********************************************************************!*\
+  !*** ./resources/js/components/Checkout.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./Checkout.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Checkout.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/Checkout.vue?vue&type=template&id=715e4fb1&":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/components/Checkout.vue?vue&type=template&id=715e4fb1& ***!
+  \*****************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_715e4fb1___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./Checkout.vue?vue&type=template&id=715e4fb1& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Checkout.vue?vue&type=template&id=715e4fb1&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_715e4fb1___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_Checkout_vue_vue_type_template_id_715e4fb1___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

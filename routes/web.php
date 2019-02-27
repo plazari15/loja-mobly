@@ -28,6 +28,8 @@ Route::get('add/produto/{id}', 'Api\Produtos@addToCart')->name('add.produto');
 Route::get('/produto/add/{id}', 'Api\Produtos@addToCart');
 Route::get('/carrinho', 'Store\CartControllerStore@index')->name('carrinho');
 Route::get('/checkout', 'Store\CheckoutController@index')->name('checkout');
+Route::post('/checkout/register', 'Store\CheckoutController@register')->name('client.register');
+Route::get('/checkout/login', 'Store\CheckoutController@index')->name('client.login');
 
 Auth::routes();
 

@@ -23,3 +23,4 @@ Route::get('/produto/{id}', 'Api\Produtos@show');
 Route::get('/carrinho', 'Api\CartController@getItems');
 Route::put('carrinho/mudaProduto', 'Api\CartController@mudaProduto');
 Route::put('carrinho/deletaProduto', 'Api\CartController@deletaProduto');
+Route::post('carrinho/emitirPedido', 'Api\CartController@emitirPedido');
